@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Define la carpeta de trabajo (usa la carpeta actual '.' si no le pasas un argumento)
-CARPETA="${1:-.}"
+PALABRA="$1"
+CARPETA="${2:-/}"
+
+if [ -z "$PALABRA" ]; then
+    echo "Uso: $0 <palabra> [carpeta]"
+    exit 1
+fi
 
 echo "Buscando archivos .txt que contienen la palabra 'home' en: $CARPETA"
 echo "------------------------------------------------------------------"
