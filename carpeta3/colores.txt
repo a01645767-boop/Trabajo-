@@ -1,0 +1,1 @@
+azul, rojo, amarillo, negro, blanco, verde, rosa, morado, naranja, cyan, gris
