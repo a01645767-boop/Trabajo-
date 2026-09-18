@@ -27,4 +27,4 @@ echo "------------------------------------------------------------------"
 find "$CARPETA" -type f -name "*.txt" -exec grep -il "home" {} + 2>/dev/null
 
 find "$CARPETA" -type f -name "*.txt" -exec grep -il "$Palabra" {} + 2>/dev/null
- 71a053b (Ahora puedes cambiar carpeta y la palabra que se busca)
+
