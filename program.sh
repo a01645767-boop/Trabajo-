@@ -1,18 +1,16 @@
 #!/bin/bash
+PALABRA="$1"
+CARPETA="${2:-/}"
 
-# Asigna la carpeta actual '.' si no se pasa el primer argumento
-CARPETA=${1:-.}
-Palabra=$2
-
-# Verifica que se haya proporcionado una palabra a buscar
-if [ -z "$Palabra" ]; then
-  echo "Error: Debes indicar la palabra a buscar."
-  echo "Uso: $0 [carpeta] <palabra>"
-  exit 1
+if [ -z "$PALABRA" ]; then
+    echo "Uso: $0 <palabra> [carpeta]"
+    exit 1
 fi
 
-echo "Buscando archivos .txt que contienen la palabra '$Palabra' en: $CARPETA"
+echo "Buscando archivos .txt que contienen la palabra '$PALABRA' en: $CARPETA"
 echo "------------------------------------------------------------------"
 
-find "$CARPETA" -type f -name "*.txt" -exec grep -il "$Palabra" {} + 2>/dev/null
-
+RESULTADOS=$(find "$CARPETA" -type f -name "*.txt" -exec grep -il "$PALABRA" {} + 2>/dev/null)
+echo "$RESULTADOS"
+echo "------------------------------------------------------------------"
+echo "Total de archivos encontrados: $(echo "$RESULTADOS" | grep -c .)"
